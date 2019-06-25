@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class main {
+    public static void main(String[] args)
+    {
+        int i,j,max_houglass=0,curr_hourglass=0;
+        Scanner s=new Scanner(System.in);
+        System.out.println("Enter number of rows: ");
+        int r=s.nextInt();
+        System.out.println("Enter number of columns: ");
+        int c=s.nextInt();
+        System.out.println("Enter elements: ");
+        int a[][]=new int[r][c];
+        for( i=0;i<r;i++) {
+            for ( j = 0; j < c; j++) {
+                a[i][j] = s.nextInt();
+            }
+
+        }
+        for(i=0;i<r;i++)
+        {
+            for(j=0;j<c;j++)
+            {
+                System.out.println(a[i][j]);
+            }
+            System.out.println();
+        }
+        for(i=0;i<r-2;i++)
+        {
+            for(j=0;j<c-2;j++)
+            {
+                curr_hourglass=a[i][j]+a[i][j+1]+a[i][j+2]+a[i+1][j+1]+a[i+2][j]+a[i+2][j+1]+a[i+2][j+2];
+                System.out.println(curr_hourglass+" ");
+                if(curr_hourglass>max_houglass)
+                {
+                    max_houglass=curr_hourglass;
+                }
+            }
+        }
+        System.out.println(max_houglass);
+    }
+}
